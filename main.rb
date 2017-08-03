@@ -35,9 +35,14 @@ def TotalBal(account)
 	total.round(2)
 end
 
+account = gets.chomp.capitalize.to_sym
+if account == :Priya
+	puts TotalBal(account)
+else
+	puts "Please try another account"
+end
+
 binding.pry
 
-
-
-puts "nil"
+puts "placeholder for prying deeper into the depths of our misfortunes \n Abandon all hope \n ye who debug here!"
 
