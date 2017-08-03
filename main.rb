@@ -7,11 +7,9 @@ CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
 	@people[row["Account"].chomp.to_sym] = {}
 
 end
-
 CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
 	@people[row["Account"].chomp.to_sym][row["Category"].chomp.to_sym] = []
 end
-
 CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
 	account = row["Account"].chomp.to_sym
 	category = row["Category"].chomp.to_sym
@@ -20,12 +18,19 @@ CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
 @people[account][category] << outflow + inflow
 end
 
-def categoryTotal (account, category, total=0)
-@people[account][category].each {|amount| total += amount }
-total.round(2)
+def categoryTotal (account, category)
+	total = @people[account][category].sum
+	total.round(2)
+end 
 
-def categoryAverage (account, category, )
+def categoryAverage (account, category)
+	categoryTotal(account, category) / @people[account][category].length 
+	total.round(2)
+end
 
+def categoryBal (account, category)
+	
+end
 
 binding.pry
 
