@@ -36,7 +36,7 @@ def TotalBal(account)
 end
 
 account = gets.chomp.capitalize.to_sym
-if account == :Priya
+if account = :Priya
 	puts TotalBal(account)
 else
 	puts "Please try another account"
@@ -44,5 +44,5 @@ end
 
 binding.pry
 
-puts "placeholder for prying deeper into the depths of our misfortunes \n Abandon all hope \n ye who debug here!"
+puts "Pry Placeholder \n Abandon all hope \n ye who debug here!"
 
