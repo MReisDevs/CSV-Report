@@ -18,9 +18,10 @@ CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
 @people[account][category] << outflow + inflow
 end
 
+
+
 def categoryTotal (account, category)
-	total = @people[account][category].sum
-	total.round(2)
+	total = @people[account][category].sum.round(2)
 end 
 
 def categoryAverage (account, category)
@@ -28,11 +29,15 @@ def categoryAverage (account, category)
 	total.round(2)
 end
 
-def categoryBal (account, category)
-	
+def TotalBal(account)
+	total = 0 
+	@people[account].each_key {|key| total += categoryTotal(account, key) } 
+	total.round(2)
 end
 
 binding.pry
+
+
 
 puts "nil"
 
