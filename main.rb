@@ -36,7 +36,7 @@ def TotalBal(account)
 end
 
 account = gets.chomp.capitalize.to_sym
-if account = :Priya
+if account == :Priya
 	puts TotalBal(account)
 else
 	puts "Please try another account"
