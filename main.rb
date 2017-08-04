@@ -19,7 +19,6 @@ CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
 end
 
 
-
 def categoryTotal (account, category)
 	total = @people[account][category].sum.round(2)
 end 
@@ -35,9 +34,10 @@ def TotalBal(account)
 	total.round(2)
 end
 
+
 account = gets.chomp.capitalize.to_sym
-if account == :Priya
-	puts TotalBal(account)
+if account == :Priya || account == :Sonia
+	puts "Welcome #{account}!\nHere is your overall balance $ #{TotalBal(account)}"
 else
 	puts "Please try another account"
 end
