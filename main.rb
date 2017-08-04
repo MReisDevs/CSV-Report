@@ -18,7 +18,6 @@ CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
 @people[account][category] << outflow + inflow
 end
 
-
 def categoryTotal (account, category)
 	total = @people[account][category].sum.round(2)
 end 
@@ -33,7 +32,6 @@ def TotalBal(account)
 	@people[account].each_key {|key| total += categoryTotal(account, key) } 
 	total.round(2)
 end
-
 
 account = gets.chomp.capitalize.to_sym
 if account == :Priya || account == :Sonia
